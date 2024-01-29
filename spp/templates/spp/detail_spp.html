@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Detail SPP - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Detail SPP</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <p>ID: {{ spp.id_spp }}</p>
+            <p>Tahun: {{ spp.tahun }}</p>
+            <p>Nominal: {{ spp.nominal }}</p>
+            <a href="{% url 'spp:edit_spp' spp.id_spp %}" class="btn btn-warning">Edit</a>
+            <a href="#" onclick="konfirmasiHapus('{{ spp.id_spp }}')" class="btn btn-danger">Hapus</a>
+            <a href="{% url 'spp:daftar_spp' %}" class="btn btn-secondary">Kembali ke Daftar SPP</a> <!-- Link kembali ke daftar SPP -->
+        </div>
+    </div>
+    <script>
+        function konfirmasiHapus(id_spp) {
+            var konfirmasi = confirm("Apakah Anda yakin ingin menghapus data SPP?");
+            if (konfirmasi) {
+                window.location.href = "{% url 'spp:hapus_spp' 0 %}".replace('0', id_spp);
+            }
+        }
+    </script>
+{% endblock %}

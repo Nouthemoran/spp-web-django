@@ -1,0 +1,38 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}History Pembayaran - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>History Pembayaran</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID Pembayaran</th>
+                            <th>Tanggal Bayar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if history_list %}
+                            {% for history in history_list %}
+                                <tr>
+                                    <td>{{ history.pembayaran.id_pembayaran }}</td>
+                                    <td>{{ history.tanggal_bayar }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="2">Data history pembayaran belum tersedia.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

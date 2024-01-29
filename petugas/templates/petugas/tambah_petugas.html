@@ -1,0 +1,42 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Tambah Petugas - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Tambah Petugas</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_petugas">ID Petugas:</label>
+                    <input type="text" id="id_petugas" name="id_petugas" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="nama_petugas">Nama Petugas:</label>
+                    <input type="text" id="nama_petugas" name="nama_petugas" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="level">Level:</label>
+                    <select id="level" name="level" class="form-control" required>
+                        <option value="admin">Admin</option>
+                        <option value="petugas">Petugas</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+            <a href="{% url 'petugas:daftar_petugas' %}" class="btn btn-secondary">Kembali ke Daftar Petugas</a> <!-- Link untuk kembali ke daftar petugas -->
+        </div>
+    </div>
+{% endblock %}

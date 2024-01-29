@@ -1,0 +1,49 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Edit Siswa - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Edit Siswa</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nisn" class="form-label">NISN</label>
+                    {{ form.nisn }}
+                </div>
+                <div class="mb-3">
+                    <label for="nis" class="form-label">NIS</label>
+                    {{ form.nis }}
+                </div>
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama</label>
+                    {{ form.nama }}
+                </div>
+                <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    {{ form.alamat }}
+                </div>
+                <div class="mb-3">
+                    <label for="no_telp" class="form-label">No. Telp</label>
+                    {{ form.no_telp }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_kelas" class="form-label">Kelas</label>
+                    {{ form.id_kelas }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_spp" class="form-label">SPP</label>
+                    {{ form.id_spp }}
+                </div>
+                <input type="submit" class="btn btn-primary" value="Simpan">
+            </form>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'siswa:daftar_siswa' %}" class="btn btn-secondary">Kembali ke Daftar Siswa</a>
+        </div>
+    </div>
+{% endblock %}

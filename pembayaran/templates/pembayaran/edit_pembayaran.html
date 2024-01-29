@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Edit Pembayaran - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Edit Pembayaran</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{% url 'pembayaran:daftar_pembayaran' %}" class="btn btn-secondary">Batal</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

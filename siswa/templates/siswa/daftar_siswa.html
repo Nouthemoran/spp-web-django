@@ -1,0 +1,55 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Daftar Siswa - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Daftar Siswa</h1>
+{% endblock %}
+
+{% block main_content %}
+    <a href="{% url 'siswa:tambah_siswa' %}" class="btn btn-primary mb-2">Tambah Siswa</a>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>NISN</th>
+                    <th>NIS</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>No. Telp</th>
+                    <th>Kelas</th>
+                    <th>SPP</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for siswa in siswa_list %}
+                    <tr>
+                        <td>{{ siswa.nisn }}</td>
+                        <td>{{ siswa.nis }}</td>
+                        <td>{{ siswa.nama }}</td>
+                        <td>{{ siswa.alamat }}</td>
+                        <td>{{ siswa.no_telp }}</td>
+                        <td>{{ siswa.id_kelas.nama_kelas }}</td>
+                        <td>{{ siswa.id_spp.tahun }} - {{ siswa.id_spp.nominal }}</td>
+                        <td>
+                            <a href="{% url 'siswa:detail_siswa' siswa.nisn %}" class="btn btn-info btn-sm">Detail</a>
+                            <a href="{% url 'siswa:edit_siswa' siswa.nisn %}" class="btn btn-warning btn-sm">Edit</a>
+                            <button class="btn btn-danger btn-sm" onclick="konfirmasiHapus('{{ siswa.nisn }}')">Hapus</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function konfirmasiHapus(nisn) {
+            var konfirmasi = confirm("Apakah Anda yakin ingin menghapus data siswa?");
+            if (konfirmasi) {
+                window.location.href = "{% url 'siswa:hapus_siswa' nisn=0 %}".replace('0', nisn);
+            }
+        }
+    </script>
+{% endblock %}

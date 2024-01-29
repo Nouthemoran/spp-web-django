@@ -1,0 +1,31 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Edit SPP - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Edit SPP</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_spp">ID SPP:</label>
+                    <span>{{ spp.id_spp }}</span>
+                </div>
+                <div class="form-group">
+                    <label for="tahun">Tahun:</label>
+                    <input type="text" id="tahun" name="tahun" class="form-control" value="{{ spp.tahun }}">
+                </div>
+                <div class="form-group">
+                    <label for="nominal">Nominal:</label>
+                    <input type="text" id="nominal" name="nominal" class="form-control" value="{{ spp.nominal }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+            <a href="{% url 'spp:detail_spp' spp.id_spp %}" class="btn btn-secondary">Batal</a> <!-- Link untuk batal dan kembali ke detail SPP -->
+        </div>
+    </div>
+{% endblock %}

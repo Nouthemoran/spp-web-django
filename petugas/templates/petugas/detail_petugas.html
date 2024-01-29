@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Detail Petugas - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Detail Petugas</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <p>ID Petugas: {{ petugas.id_petugas }}</p>
+            <p>Username: {{ petugas.username }}</p>
+            <p>Nama Petugas: {{ petugas.nama_petugas }}</p>
+            <p>Level: {{ petugas.level }}</p>
+
+            <a href="{% url 'petugas:daftar_petugas' %}" class="btn btn-primary">Kembali ke Daftar Petugas</a> <!-- Link untuk kembali ke daftar petugas -->
+        </div>
+    </div>
+{% endblock %}

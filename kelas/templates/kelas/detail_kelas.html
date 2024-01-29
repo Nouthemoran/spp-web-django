@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Detail Kelas - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Detail Kelas</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <p class="mb-1"><strong>ID Kelas:</strong> {{ kelas.id_kelas }}</p>
+            <p class="mb-1"><strong>Nama Kelas:</strong> {{ kelas.nama_kelas }}</p>
+            <p class="mb-1"><strong>Kompetensi Keahlian:</strong> {{ kelas.kompetensi_keahlian }}</p>
+            <a href="{% url 'kelas:daftar_kelas' %}" class="btn btn-primary btn-sm">Kembali ke Daftar Kelas</a> <!-- Link untuk kembali ke daftar kelas -->
+        </div>
+    </div>
+{% endblock %}

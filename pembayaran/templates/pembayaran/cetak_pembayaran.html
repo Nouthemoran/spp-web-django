@@ -1,0 +1,18 @@
+{% block content_header %}
+    <h1>Detail Pembayaran</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <p>ID Pembayaran: {{ pembayaran.id_pembayaran }}</p>
+            <p>ID Petugas: {{ pembayaran.id_petugas }}</p>
+            <p>NISN: {{ pembayaran.nisn }}</p>
+            <p>Tanggal Bayar: {{ pembayaran.tgl_bayar }}</p>
+            <p>Bulan Dibayar: {{ pembayaran.bulan_dibayar }}</p>
+            <p>Tahun Dibayar: {{ pembayaran.tahun_dibayar }}</p>
+            <p>ID SPP: {{ pembayaran.id_spp }}</p>
+            <p>Jumlah Bayar: {{ pembayaran.jumlah_bayar }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Petugas</title>
+</head>
+<body>
+    <h1>Daftar Petugas</h1>
+    <a href="{% url 'tambah_petugas' %}">Tambah Petugas</a> <!-- Link untuk tambah petugas -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Petugas</th>
+                <th>Username</th>
+                <th>Nama Petugas</th>
+                <th>Level</th>
+                <th>Detail</th>
+                <th>Edit</th>
+                <th>Hapus</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for petugas in petugas_list %}
+            <tr>
+                <td>{{ petugas.id_petugas }}</td>
+                <td>{{ petugas.username }}</td>
+                <td>{{ petugas.nama_petugas }}</td>
+                <td>{{ petugas.level }}</td>
+                <td><a href="{% url 'detail_petugas' petugas.id_petugas %}">Detail</a></td>
+                <td><a href="{% url 'edit_petugas' petugas.id_petugas %}">Edit</a></td>
+                <td><a href="{% url 'hapus_petugas' petugas.id_petugas %}">Hapus</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

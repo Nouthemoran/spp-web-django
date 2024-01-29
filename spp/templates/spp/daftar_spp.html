@@ -1,0 +1,47 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Daftar SPP - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Daftar SPP</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <a href="{% url 'spp:tambah_spp' %}" class="btn btn-primary mb-3">Tambah SPP</a> <!-- Tautan tambah SPP -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tahun</th>
+                        <th>Nominal</th>
+                        <th>Detail</th>
+                        <th>Edit</th>
+                        <th>Hapus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for spp in spp_list %}
+                        <tr>
+                            <td>{{ spp.id_spp }}</td>
+                            <td>{{ spp.tahun }}</td>
+                            <td>{{ spp.nominal }}</td>
+                            <td><a href="{% url 'spp:detail_spp' spp.id_spp %}" class="btn btn-info btn-sm">Detail SPP</a></td>
+                            <td><a href="{% url 'spp:edit_spp' spp.id_spp %}" class="btn btn-warning btn-sm">Edit</a></td>
+                            <td><a href="#" onclick="konfirmasiHapus('{{ spp.id_spp }}')" class="btn btn-danger btn-sm">Hapus</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function konfirmasiHapus(id_spp) {
+            var konfirmasi = confirm("Apakah Anda yakin ingin menghapus data SPP?");
+            if (konfirmasi) {
+                window.location.href = "{% url 'spp:hapus_spp' 0 %}".replace('0', id_spp);
+            }
+        }
+    </script>
+{% endblock %}

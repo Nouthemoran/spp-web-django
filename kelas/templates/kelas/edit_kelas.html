@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Edit Kelas - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Edit Kelas</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="{% url 'kelas:edit_kelas' kelas.id_kelas %}">
+                {% csrf_token %}
+                {{ form.as_p }} <!-- Menampilkan form yang telah diinisialisasi pada views.py -->
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{% url 'kelas:daftar_kelas' %}" class="btn btn-secondary">Batal</a> <!-- Link untuk batal dan kembali ke daftar kelas -->
+            </form>
+        </div>
+    </div>
+{% endblock %}

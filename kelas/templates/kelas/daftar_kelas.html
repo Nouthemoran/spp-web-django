@@ -1,0 +1,46 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Daftar Kelas - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Daftar Kelas</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <a href="{% url 'kelas:tambah_kelas' %}" class="btn btn-primary">Tambah Kelas</a> <!-- Link untuk tambah kelas -->
+
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>ID Kelas</th>
+                        <th>Nama Kelas</th>
+                        <th>Kompetensi Keahlian</th>
+                        <th>Detail</th>
+                        <th>Edit</th>
+                        <th>Hapus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for kelas in kelas_list %}
+                        <tr>
+                            <td>{{ kelas.id_kelas }}</td>
+                            <td>{{ kelas.nama_kelas }}</td>
+                            <td>{{ kelas.kompetensi_keahlian }}</td>
+                            <td><a href="{% url 'kelas:detail_kelas' kelas.id_kelas %}" class="btn btn-info btn-sm">Detail</a></td>
+                            <td><a href="{% url 'kelas:edit_kelas' kelas.id_kelas %}" class="btn btn-warning btn-sm">Edit</a></td>
+                            <td><a href="{% url 'kelas:hapus_kelas' kelas.id_kelas %}" onclick="return confirmDelete()" class="btn btn-danger btn-sm">Hapus</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Apakah Anda yakin ingin menghapus kelas ini?');
+        }
+    </script>
+{% endblock %}

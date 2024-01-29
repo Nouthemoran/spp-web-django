@@ -1,0 +1,47 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Daftar Petugas - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Daftar Petugas</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <a href="{% url 'petugas:tambah_petugas' %}" class="btn btn-primary">Tambah Petugas</a> <!-- Link untuk tambah petugas -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID Petugas</th>
+                        <th>Username</th>
+                        <th>Nama Petugas</th>
+                        <th>Level</th>
+                        <th>Detail</th>
+                        <th>Edit</th>
+                        <th>Hapus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for petugas in petugas_list %}
+                    <tr>
+                        <td>{{ petugas.id_petugas }}</td>
+                        <td>{{ petugas.username }}</td>
+                        <td>{{ petugas.nama_petugas }}</td>
+                        <td>{{ petugas.level }}</td>
+                        <td><a href="{% url 'petugas:detail_petugas' petugas.id_petugas %}" class="btn btn-info">Detail</a></td>
+                        <td><a href="{% url 'petugas:edit_petugas' petugas.id_petugas %}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="{% url 'petugas:hapus_petugas' petugas.id_petugas %}" class="btn btn-danger" onclick="return confirmDelete()">Hapus</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Apakah Anda yakin ingin menghapus petugas ini?');
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Detail Siswa - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Detail Siswa</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">NISN: {{ siswa.nisn }}</h5>
+            <p class="card-text">NIS: {{ siswa.nis }}</p>
+            <p class="card-text">Nama: {{ siswa.nama }}</p>
+            <p class="card-text">Alamat: {{ siswa.alamat }}</p>
+            <p class="card-text">No. Telp: {{ siswa.no_telp }}</p>
+            <p class="card-text">Kelas: {{ siswa.id_kelas.nama_kelas }}</p>
+            <p class="card-text">SPP: {{ siswa.id_spp.tahun }} - {{ siswa.id_spp.nominal }}</p>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'siswa:edit_siswa' siswa.nisn %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'siswa:hapus_siswa' siswa.nisn %}" class="btn btn-danger">Hapus</a>
+            <a href="{% url 'siswa:daftar_siswa' %}" class="btn btn-secondary">Kembali ke Daftar Siswa</a>
+
+        </div>
+    </div>
+{% endblock %}

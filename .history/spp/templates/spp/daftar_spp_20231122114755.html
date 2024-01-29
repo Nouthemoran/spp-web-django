@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar SPP</title>
+</head>
+<body>
+    <h1>Daftar SPP</h1>
+    <a href="{% url 'spp:tambah_spp' %}">Tambah SPP</a> <!-- Link untuk tambah SPP -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tahun</th>
+                <th>Nominal</th>
+                <th>Detail</th>
+                <th>Edit</th>
+                <th>Hapus</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for spp in spp_list %}
+            <tr>
+                <td>{{ spp.id_spp }}</td>
+                <td>{{ spp.tahun }}</td>
+                <td>{{ spp.nominal }}</td>
+                <td><a href="{% url 'detail_spp' spp.pk %}">Detail SPP</a></td>
+                <td><a href="{% url 'edit_spp' spp.pk %}">Edit</a></td>
+                <td><a href="{% url 'hapus_spp' spp.pk %}">Hapus</a></td>                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
