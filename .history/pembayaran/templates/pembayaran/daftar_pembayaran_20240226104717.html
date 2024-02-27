@@ -1,0 +1,61 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Daftar Pembayaran - SPP{% endblock %}
+
+{% block content_header %}
+    <h1>Daftar Pembayaran</h1>
+{% endblock %}
+
+{% block main_content %}
+    <div class="card">
+        <div class="card-body">
+            <a href="{% url 'pembayaran:tambah_pembayaran' %}" class="btn btn-primary">Tambah Pembayaran</a>
+
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>ID Pembayaran</th>
+                        <th>ID Petugas</th>
+                        <th>NISN</th>
+                        <th>Tanggal Bayar</th>
+                        <th>Bulan Dibayar</th>
+                        <th>Tahun Dibayar</th>
+                        <th>ID SPP</th>
+                        <th>Jumlah Bayar</th>
+                        <th>Detail</th>
+                        <th>Edit</th>
+                        <th>Hapus</th>
+                        <th>Cetak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pembayaran in pembayaran_list %}
+                        <tr>
+                            <td>{{ pembayaran.id_pembayaran }}</td>
+                            <td>{{ pembayaran.id_petugas.id_petugas }}</td>
+                            <td>{{ pembayaran.nisn. }}</td>
+                            <td>{{ pembayaran.tgl_bayar }}</td>
+                            <td>{{ pembayaran.bulan_dibayar }}</td>
+                            <td>{{ pembayaran.tahun_dibayar }}</td>
+                            <td>{{ pembayaran.id_spp.id_spp }}</td>
+                            <td>{{ pembayaran.jumlah_bayar }}</td>
+                            <td><a href="{% url 'pembayaran:detail_pembayaran' pembayaran.id_pembayaran %}" class="btn btn-info">Detail</a></td>
+                            <td><a href="{% url 'pembayaran:edit_pembayaran' pembayaran.id_pembayaran %}" class="btn btn-warning">Edit</a></td>
+                            <td><a href="#" onclick="konfirmasiHapus('{{ pembayaran.id_pembayaran }}')" class="btn btn-danger">Hapus</a></td>
+                            <td><a href="{% url 'pembayaran:cetak_pembayaran' pembayaran.id_pembayaran %}" target="_blank" class="btn btn-success">Cetak</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function konfirmasiHapus(id_pembayaran) {
+            var konfirmasi = confirm("Apakah Anda yakin ingin menghapus data pembayaran?");
+            if (konfirmasi) {
+                window.location.href = "{% url 'pembayaran:hapus_pembayaran' pembayaran_id=0 %}".replace('0', id_pembayaran);
+            }
+        }
+    </script>
+{% endblock %}

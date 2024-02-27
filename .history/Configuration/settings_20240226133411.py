@@ -25,7 +25,50 @@ SECRET_KEY = 'django-insecure-#)=k#0faea7@gcxk!byv8g$fhgxzmo)(cw1o&7)a^$eb&u-1^9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','2dc6-140-213-98-73.ngrok-free.app']
+ALLOWED_HOSTS = ['(env) PS D:\project\django-project\spp-web> py manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 26, 2024 - 13:27:22
+Django version 5.0.2, using settings 'Configuration.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+Invalid HTTP_HOST header: '2dc6-140-213-98-73.ngrok-free.app'. You may need to add '2dc6-140-213-98-73.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\project\django-project\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\django-project\env\Lib\site-packages\django\utils\deprecation.py", line 133, in 
+__call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\django-project\env\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\project\django-project\env\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '2dc6-140-213-98-73.ngrok-free.app'. You may need to add '2dc6-140-213-98-73.ngrok-free.app' to ALLOWED_HOSTS.
+Bad Request: /
+[26/Feb/2024 13:27:28] "GET / HTTP/1.1" 400 78029
+Invalid HTTP_HOST header: '2dc6-140-213-98-73.ngrok-free.app'. You may need to add '2dc6-140-213-98-73.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\project\django-project\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\django-project\env\Lib\site-packages\django\utils\deprecation.py", line 133, in 
+__call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project\django-project\env\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\project\django-project\env\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '2dc6-140-213-98-73.ngrok-free.app'. You may need to add '2dc6-140-213-98-73.ngrok-free.app' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+[26/Feb/2024 13:27:33] "GET /favicon.ico HTTP/1.1" 400 77830']
 
 
 # Application definition
